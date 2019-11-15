@@ -18,9 +18,13 @@ super + Tab
 super + Escape
 	pkill -USR1 -x sxhkd
 
-#
+# switch monitors
 super + shift + d
     bash ~/.config/scripts/monitors.sh
+
+# Volume
+XF86Audio{Raise,Lower}Volume
+    amixer sset Master {3+,3-} unmute
 
 #
 # bspwm hotkeys
@@ -31,7 +35,7 @@ super + alt + {q,r}
 	bspc {quit,wm -r}
 
 # close and kill
-super + {_,shift + }w
+super + {_,shift + }q
 	bspc node -{c,k}
 
 # alternate between the tiled and monocle layout
