@@ -42,6 +42,7 @@ fi
 # probably don't change these
 if [ -x "$(command -v tput)" ]; then
 	bold="$(tput bold)"
+    italic="$(tput sitm)"
 	black="$(tput setaf 0)"
 	red="$(tput setaf 1)"
 	green="$(tput setaf 2)"
@@ -54,21 +55,19 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${reset}${bold}${yellow}"       # labels
-nc="${reset}${bold}${yellow}"       # user and hostname
-ic="${reset}"                       # info
-c0="${reset}${yellow}"              # first color
+lc="${reset}${bold}${cyan}"      # labels
+nc="${reset}${bold}${yellow}"    # user
+hc="${reset}${bold}${blue}"      # hostname
+ic="${reset}${italic}"           # info
+c0="${reset}${bold}${magenta}"   # first color
 
 ## OUTPUT
-
 cat <<EOF
-
-${c0}           _   ${nc}${USER}${ic}@${nc}${host}${reset}
-${c0}       ---(_)  ${lc}OS:        ${ic}${os}${reset}
-${c0}   _/  ---  \\  ${lc}KERNEL:    ${ic}${kernel}${reset} 
-${c0}  (_) |   |    ${lc}UPTIME:    ${ic}${uptime}${reset}
-${c0}    \\  --- _/  ${lc}PACKAGES:  ${ic}${packages}${reset} 
-${c0}       ---(_)  ${lc}SHELL:     ${ic}${shell}${reset}
-${c0}               ${lc}${uitype}:        ${ic}${ui}${reset}
-
+${c0}    __        ${nc}${USER}${ic}${reset}${bold}${green}@${hc}${host}${reset}
+${c0}    \\\\\       ${lc}OS:        ${ic}${os}${reset}
+${c0}     \\\\\\      ${lc}KERNEL:    ${ic}${kernel}${reset}
+${c0}      >\\\\     ${lc}UPTIME:    ${ic}${uptime}${reset}
+${c0}     //^\\\\    ${lc}PACKAGES:  ${ic}${packages}${reset}
+${c0}    /// \\\\\\   ${lc}SHELL:     ${ic}${shell}${reset}
+${c0}              ${lc}${uitype}:        ${ic}${ui}${reset}
 EOF
