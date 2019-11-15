@@ -52,6 +52,9 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# autojump
+source /usr/share/autojump/autojump.sh
+
 # Load aliases and shortcuts if existent.
 source $ZDOTDIR/alias.zsh
 
