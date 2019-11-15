@@ -1,8 +1,8 @@
 # Luke's config for the Zoomer Shell
-
+source $ZDOTDIR/plugins/gitstatus/gitstatus.prompt.zsh
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PROMPT='%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%1d $GITSTATUS_PROMPT$ '
 
 # History in cache directory:
 HISTSIZE=10000

@@ -58,6 +58,7 @@ mkdir zsh
 mkdir zsh/plugins
 cd zsh/plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting
+git clone https://github.com/romkatv/gitstatus
 wget https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
 
 # Moves config files around
