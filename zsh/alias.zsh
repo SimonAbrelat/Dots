@@ -3,6 +3,7 @@ alias v='nvim'
 alias ins='sudo apt install'
 alias ls='ls --color=auto'
 alias pi='ping 8.8.8.8'
+alias fetch='bash ~/.config/scripts/fetch'
 
 # FUNCTIONS
 function cycle (){
