@@ -10,3 +10,5 @@ function cycle (){
     nmcli connection down $1
     nmcli connection up $1
 }
+
+function z(){ zathura $1 & }
