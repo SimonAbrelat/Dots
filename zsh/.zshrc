@@ -16,6 +16,14 @@ zmodload zsh/complist
 compinit -d $ZDOTDIR/comp
 _comp_options+=(globdots) # Include hidden files.
 
+#—————————————————— History completion —
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "\eOA" up-line-or-beginning-search # Up
+bindkey "\eOB" down-line-or-beginning-search # Down
+
 # autojump
 source /usr/share/autojump/autojump.sh
 
