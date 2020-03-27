@@ -1,7 +1,9 @@
-#!/bin/sh
-cd ~
-config=$HOME/.config
-dots=$HOME/.config/Dots
-cp $config/bspwm/bspwmrc $dots
-cp $config/sxhkd/sxhkdrc $dots
-cp -r $config/polybar $dots
+#!/bin.bash
+c=$HOME/.config
+rm -rf $c/bspwm
+rm -rf $c/sxhkd
+rm -rf $c/polybar
+cd $c/Dots
+cp bspwmrc $c/bspwm
+cp sxhkdrc $c/sxhkd
+cp -r polybar $c
