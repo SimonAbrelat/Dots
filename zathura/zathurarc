@@ -1,0 +1,3 @@
+map i recolor
+set recolor-lightcolor          "#282828" # bg
+set recolor-darkcolor           "#ebdbb2" # fg

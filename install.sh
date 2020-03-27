@@ -45,6 +45,7 @@ cp alacritty.yml ~/.config/alacritty
 cp -r scripts ~/.config
 cp -r rofi ~/.config
 cp -r zsh ~/.config
+cp -r zathura ~/.config
 sudo mv ~/.config/zsh/zshenv /etc/zsh/zshenv
 
 # DONE
