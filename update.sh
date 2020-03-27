@@ -1,8 +1,8 @@
 #!/bin/sh
 cd ~
 config=$HOME/.config
-dots=$HOME/.config/dots
-cp ~/.zshenv $dots/zsh
+dots=$HOME/.config/Dots
+cp /etc/zsh/zshenv $dots/zsh
 cp $config/zsh/.zshrc $dots/zsh
 cp $config/zsh/alias.zsh $dots/zsh
 cp $config/alacritty/alacritty.yml $dots

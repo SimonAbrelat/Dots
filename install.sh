@@ -21,7 +21,6 @@ pip3 install pynvim
 # snap
 snap install spotify
 snap install ripgrep --classic
-
 # adds github projects
 mkdir .source
 cd .source
@@ -62,14 +61,18 @@ git clone https://github.com/romkatv/gitstatus
 wget https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
 
 # Moves config files around
-cd ~/.config/dots
+cd ~/config/Dots
+mkdir -p ~/.config/alacritty
+mkdir -p ~/.config/sxhkd
+mkdir -p ~/.config/bspwm
+cp alacritty.yml ~/.config/alacritty
 cp bspwmrc ~/.config/bspwm
 cp sxhkdrc ~/.config/sxhkd
 cp -r polybar ~/.config
 cp -r scripts ~/.config
 cp -r rofi ~/.config
 cp -r zsh ~/.config
-mv ~/.config/zsh/.zshenv $HOME
+sudo mv ~/.config/zsh/zshenv /etc/zsh/zshenv
 
 # DONE
 echo "DONE"
