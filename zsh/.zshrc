@@ -35,3 +35,6 @@ eval $( dircolors -b $ZDOTDIR/plugins/LS_COLORS)
 
 # Load zsh-syntax-highlighting; should be last.
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# Path variables
+export PATH=$HOME/.local/bin:$PATH

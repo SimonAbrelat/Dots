@@ -1,0 +1,1 @@
+echo "INSTALLED TEST!"

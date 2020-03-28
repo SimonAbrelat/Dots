@@ -49,6 +49,4 @@ cp -r zathura ~/.config
 sudo mv ~/.config/zsh/zshenv /etc/zsh/zshenv
 
 # DONE
-echo "DONE"
-sleep 1
-reboot
+echo "INSTALLED"
