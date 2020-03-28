@@ -1,6 +1,4 @@
-On new machine
-1) install git
-2) mkdir .config && cd .config
-3) clone
-4) cd Dots
-5) bash install.sh
+bash use.sh install [list of window managers]
+
+current possible window managers:
++ bspwm
