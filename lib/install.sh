@@ -3,7 +3,7 @@
 cd ~
 # Add repos
 sudo add-apt-repository ppa:mmstick76/alacritty
-sudo add-apt-repository ppa:neovim--ppa/stable
+sudo add-apt-repository ppa:neovim-ppa/stable
 sudo apt update
 # Install packages
 ## apt

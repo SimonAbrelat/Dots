@@ -15,7 +15,13 @@ case "${1}" in
     clean | push | save | install ) bash $dots/lib/$1.sh
                                     manager $1 ${@:2}
     ;;
-    manage ) manager $2 ${@:3}
+    manage )
+        if [ "$2" == "update" ]; then
+            manager clean ${@:3}
+            manager push ${@:2}
+        else
+            manager $2 ${@:3}
+        fi
     ;;
     *) echo "The possible commands are:
     update: sets the current config to Dots

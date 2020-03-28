@@ -4,6 +4,7 @@ x=$HOME/.config/Dots/wm/xmonad
 curl -sSL https://get.haskellstack.org/ | sudo sh
 # Dependencies
 sudo apt install libx11-dev libxinerama-dev libxext-dev libxrandr-dev libxss-dev libxft-dev libghc-xmonad-contrib-dev libghc-xmonad-dev suckless-tools
+sudo apt install libasound2-dev libiw-dev libxml2-dev libxpm-dev
 
 # Install xmonad and xmobar
 mkdir -p $HOME/.xmonad
@@ -16,6 +17,9 @@ cp $x/build .
 cp $x/xmonad.hs .
 
 stack init
+
+cp $x/stack.yml ~/.xmonad
+
 stack install
 xmonad --recompile && xmonad --restart
 sudo cp $x/xmonad.desktop /usr/share/xsessions

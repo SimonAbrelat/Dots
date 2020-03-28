@@ -7,6 +7,7 @@ cp -r $d/rofi $c
 cp -r $d/zsh $c
 mkdir -p $c/alacritty
 cp $d/alacritty.yml $c/alacritty
+cp $d/Xresources $HOME/.Xresources
 
 # zsh plugins
 if [ ! -d $c/zsh/plugins ]; then

@@ -2,3 +2,4 @@ bash use.sh install [list of window managers]
 
 current possible window managers:
 + bspwm
++ xmonad
