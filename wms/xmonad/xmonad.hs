@@ -5,6 +5,7 @@
 -- Base
 import System.Exit
 import System.IO (hPutStrLn)
+import System.Process (readCreateProcess, shell)
 
 -- XMonad
 import XMonad
@@ -13,8 +14,8 @@ import qualified XMonad.StackSet as W
 
 -- Utilities
 import XMonad.Util.SpawnOnce
-import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeysP)  
+import XMonad.Util.Run (spawnPipe, runProcessWithInput)
 
 -- Hooks
 import XMonad.Hooks.SetWMName
@@ -30,6 +31,7 @@ import XMonad.Actions.CopyWindow (kill1)
 
 -- Layouts
 import XMonad.Layout.Spacing
+import XMonad.Layout.IndependentScreens (countScreens)
 
 ------------
 -- CONFIG --
@@ -62,7 +64,7 @@ main = do
             { ppOutput = \x -> hPutStrLn xmproc x
             , ppCurrent = xmobarColor "#689b6a" "" . wrap "[" "]"
             , ppVisible = xmobarColor "#c689b6" ""
-            , ppHidden = xmobarColor "#d79921" "" . wrap "*" ""
+            , ppHidden = xmobarColor "#d79921" ""
             , ppHiddenNoWindows = xmobarColor "#ebdbb2" ""
             , ppTitle = xmobarColor "#d0d0d0" "" . shorten 80
             , ppSep =  "<fc=#9AEDFE> : </fc>"
@@ -81,6 +83,14 @@ myStartHook = do
     spawnOnce "feh --bg-scale ~/.config/wall.jpg"
     setWMName "LG3D"
 
+handleMonitors = do
+    s <- readCreateProcess (shell "xrandr | grep \" connected \" | wc -l ") ""
+    let n = read s :: Integer
+    if n > 1
+        then 
+            spawn "xrandr --output eDP-1 --off; xrandr --output DP-1 --auto"
+        else
+            spawn "xrandr --output DP-1 --off; xrandr --output eDP-1 --auto"
 ------------------
 -- KEYSBINDINGS --
 ------------------
@@ -105,6 +115,8 @@ myKeys =
     , ("M-C-m", promote)             -- Moves focused window to master`
     , ("M-0", windows $ W.greedyView "0")
     , ("M-S-0", windows $ W.shift "0")
+    -- Monitor setup
+    , ("M-S-g", spawn "bash ~/.config/monitors.sh")
     ]
 
 -------------

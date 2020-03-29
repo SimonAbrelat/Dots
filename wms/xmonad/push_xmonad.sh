@@ -19,6 +19,7 @@ fi
 cp $x/build $d
 cp $x/xmonad.hs $d
 cp -r $x/xmobar ~/.config
+cp $x/monitor.sh ~/.config/scripts
 xmonad --recompile && xmonad --restart
 
 sudo cp $x/xmonad.desktop /usr/share/xsessions
