@@ -11,5 +11,6 @@ rm $dots/zsh/comp
 rm $dots/zsh/.zcompdump
 rm -rf $dots/zsh/plugins
 rm $dots/zsh/history
+rm $dots/scripts/monitors.sh
 
 echo "SAVED!"

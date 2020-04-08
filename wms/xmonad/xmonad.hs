@@ -78,9 +78,9 @@ main = do
 -- AUTOSTART --
 ---------------
 myStartHook = do
-    spawnOnce "compton -b -c --backend glx --vsync opengl-swc &"
-    spawnOnce "setxkbmap -option caps:escape"
-    spawnOnce "feh --bg-scale ~/.config/wall.jpg"
+    spawn "compton -b --backend xrender &"
+    spawn "setxkbmap -option caps:escape"
+    spawn "feh --bg-scale ~/.config/wall.jpg"
     setWMName "LG3D"
 
 handleMonitors = do
@@ -116,7 +116,10 @@ myKeys =
     , ("M-0", windows $ W.greedyView "0")
     , ("M-S-0", windows $ W.shift "0")
     -- Monitor setup
-    , ("M-S-g", spawn "bash ~/.config/monitors.sh")
+    , ("M-S-d", spawn "bash ~/.config/scripts/monitors.sh --xmonad")
+    -- Multimedia
+    , ("<XF86AudioLowerVolume>", spawn "amixer set Master 5%- unmute")
+    , ("<XF86AudioRaiseVolume>", spawn "amixer set Master 5%+ unmute")
     ]
 
 -------------
