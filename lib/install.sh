@@ -39,7 +39,7 @@ git clone https://github.com/romkatv/gitstatus
 wget https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/LS_COLORS
 
 # Moves config files around
-cd ~/config/Dots
+cd ~/.config/Dots
 mkdir -p ~/.config/alacritty
 cp alacritty.yml ~/.config/alacritty
 cp -r scripts ~/.config
