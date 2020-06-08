@@ -26,11 +26,12 @@ import XMonad.Hooks.DynamicLog (dynamicLogWithPP, defaultPP, wrap, pad, xmobarPP
 
 -- Actions
 import XMonad.Actions.Promote
-import XMonad.Actions.WithAll (killAll)
+import XMonad.Actions.WithAll    (killAll)
 import XMonad.Actions.CopyWindow (kill1)
 
 -- Layouts
 import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders          (noBorders, smartBorders)
 import XMonad.Layout.IndependentScreens (countScreens)
 
 ------------
@@ -125,14 +126,11 @@ myKeys =
 -------------
 -- LAYOUTS --
 -------------
-myLayout = tiled ||| Mirror tiled ||| Full
-  where
-    tiled = spacingRaw True screen True window True (Tall nmaster delta ratio)
-    nmaster = 1
-    ratio = 1/2
-    delta = 3/100
-    window = (Border myGap myGap myGap myGap)
-    screen = (Border (myBarHeight + myGap) myGap myGap myGap)
+myLayout = avoidStruts $ gaps $ smartBorders $ layoutHook def
+    where
+        window = (Border myGap myGap myGap myGap)
+        screen = (Border (myBarHeight + myGap) myGap myGap myGap)
+        gaps = spacingRaw True screen False window True -- gaps (border / window spacing)
 
 ----------------
 -- WORKSPACES --
